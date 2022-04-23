@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+<category>
+    <pattern>*</pattern>
+    <template>Hello, I am a bot designed to help you choose a career path that requires a computer science degree.
+            <button>
+                <text>Lets begin...</text>
+                <postback>SECRETSTART</postback>
+            </button>
+    </template>
+</category>
+
+<category>
+    <pattern>SECRETSTART</pattern>
+    <template>
+        Do you enjoy programming and/or scripting?
+        
+        <think><set name = "topic"> INIT </set></think>
+        
+        <button>
+            <text>Yes</text>
+            <postback>YESPANDS</postback>
+        </button>
+        
+        <button>
+            <text>No</text>
+            <postback>NOPANDS</postback>
+        </button>
+    </template>
+</category>
+
+<topic name="INIT">
+    <category>
+        <pattern>*</pattern>
+        <template>I dont have a match for that. Please answer my question.</template>
+    </category>
+
+    <category>
+        <pattern>YESPANDS</pattern>
+        <template>
+            Do you enjoy Mathematics?
+            
+            <button>
+                <text>Yes</text>
+                <postback>YESMATHEMATICS</postback>
+            </button>
+            
+            <button>
+                <text>No</text>
+                <postback>NOMATHEMATICS</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>NOPANDS</pattern>
+
+        <template>
+            <think><set name = "topic"> WEREDONE </set></think>
+            You should consider a career in Systems Administration.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>YESMATHEMATICS</pattern>
+        <template>
+            <think><set name = "topic"> WEREDONE </set></think>
+            You should consider a career as a computer scientist specializing in cryptography.</template>
+    </category>
+    
+    <category>
+        <pattern>NOMATHEMATICS</pattern>
+        <template>
+                Would you enjoy developing software to be used on Windows, Mac or Linux?
+            <button>
+                <text>Yes</text>
+                <postback>YESSE</postback>
+            </button>
+            
+            <button>
+                <text>No</text>
+                <postback>NOSE</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>YESSE</pattern>
+        <template>
+            <think><set name = "topic"> WEREDONE </set></think>
+            You should consider a career in Software Engineering.</template>
+    </category>
+    
+    <category>
+        <pattern>NOSE</pattern>
+        <template>
+            Which do you find more interesting? Web development such as website design and API or Mobile phone development, such as designing apps for mobile platforms?
+            
+            <button>
+                <text>Mobile Development</text>
+                <postback>YESMD</postback>
+            </button>
+            
+            <button>
+                <text>Web Development</text>
+                <postback>YESWD</postback>
+            </button>
+            
+        </template>
+    </category>
+    
+    
+    <category>
+        <pattern>YESMD</pattern>
+        <template>
+            <think><set name = "topic"> WEREDONE </set></think>
+            You should consider a career in Mobile Development.</template>
+    </category>
+    
+    <category>
+        <pattern>YESWD</pattern>
+        <template>
+            <think><set name = "topic"> WEREDONE </set></think>
+            You should consider a career in Web Development.</template>
+    </category>
+</topic>
+
+
+
+
+<topic name="WEREDONE">
+    
+    <category>
+        <pattern>*</pattern>
+        <template>We're all done. I've provided you a career path to consider. If you'd like to try again, please feel free to refresh the page.</template>
+    </category>
+    
+
+    
+</topic>
+
+
+
+
+<category>
+    <pattern></pattern>
+    <template></template>
+</category>
+</aiml>
